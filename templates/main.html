@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-myprofile-tab" data-toggle="tab" href="#nav-myprofile" role="tab" aria-controls="nav-myprofile" aria-selected="true">My Profile</a>
+            <a class="nav-item nav-link" id="nav-mytask-tab" data-toggle="tab" href="#nav-mytask" role="tab" aria-controls="nav-mytask" aria-selected="false">My Task</a>
+            <a class="nav-item nav-link" id="nav-erequest-tab" data-toggle="tab" href="#nav-erequest" role="tab" aria-controls="nav-erequest" aria-selected="false">Employee Transfer Request</a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-myprofile" role="tabpanel" aria-labelledby="nav-myprofile-tab">
+            <div class="m-5" style="text-align: center">
+                <img src="../asset/profile.png" alt="my profile" srcset="" width="150px" height="150px" onclick="jurus1()">
+                <h1 id="h11">Selamat Datang, </h1>
+                <h2 id="h22">No Id Karyawan : </h2>
+                <h2 id="h33">Jabatan : </h2>
+                <h2 id="h44">Kode Jabatan : </h2>
+                <a href="../index.html">Log Out</a>
+            </div>
+            <div id="tbProfil" class="m-3 border" style="display: none">
+                <div class="d-block bg-primary border border-dark" style="text-align: center; height: 40px;"><div style="line-height: 37px">MY ACTIVITY</div></div>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Record ID</th>
+                        <th scope="col">Participant</th>
+                        <th scope="col">Position</th>
+                        <th scope="col">Created at</th>
+                        <th scope="col">Completed at</th>
+                        <th scope="col">Response</th>
+                        <th scope="col">Comment</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tabelProfil">
+                    </tbody>
+                </table>
+                <div id="aktivitasku" style="text-align: center">No Activity</div>
+            </div>            
+        </div>
+        <div class="tab-pane fade" id="nav-mytask" role="tabpanel" aria-labelledby="nav-mytask-tab">
+            <div div class="m-5 text-secondary" id="notask" style="text-align: center"><h1>No Task Available</h1></div>
+            
+        </div>
+        <div class="tab-pane fade m-3 border border-dark rounded" id="nav-erequest" role="tabpanel" aria-labelledby="nav-erequest-tab">
+            <form>
+                <span class="d-block bg-primary border border-dark" onclick="tampil(1)" style="height: 50px"><div class="ml-3" style="line-height: 47px">REQUESTER INFORMATION</div></span>
+                <div id="1" class="m-4">
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">REQUESTER NAME</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="req_name" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">REQUESTER NPK</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="req_npk" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">REQUESTER POSITION</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="req_position" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">ON BEHALF NAME</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="ob_name" placeholder="">
+                    </div>
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">(Position minimum L4)</label>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">ON BEHALF POSITION</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="ob_position" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">EMPLOYEE</label>
+                    <div class="col-sm-3">
+                    <input type="text" class="form-control form-control-sm" id="employee_id" placeholder="EMPLOYEE ID">
+                    </div>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="employee_name" placeholder="EMPLOYEE NAME">
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg" onclick="autofille()">Cek</button>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">PROCESS ID</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="process_id" placeholder="" disabled>
+                    </div>
+                </div>
+                </div>
+
+                <span class="d-block bg-primary border border-dark" onclick="tampil(2)" style="height: 50px"><div class="ml-3" style="line-height: 47px">CURRENT</div></span>
+                <div id="2" class="m-4">
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">POSITION CODE</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="employee_pcode" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">POSITION</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="employee_p" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">COMPANY</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="e_company" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">COST CENTER</label>
+                    <div class="col-sm-3">
+                    <input type="text" class="form-control form-control-sm" id="e_costid" placeholder="" disabled>
+                    </div>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="e_costname" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">PERSONAL AREA</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="e_perarea" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">EMPLOYEE GROUP</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="e_group" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">EMPLOYEE SUBGROUP</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="e_subgroup" placeholder="" disabled>
+                    </div>
+                </div>
+                </div>
+                
+                <span class="d-block bg-primary border border-dark" onclick="tampil(3)" style="height: 50px"><div class="ml-3" style="line-height: 47px">PROPOSED</div></span>
+                <div id="3" class="m-4">
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">TYPE</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="types" placeholder="">
+                    </div>
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">(Update for non staff only)</label>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">POSITION CODE</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="poscode" placeholder="">
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg" onclick="autofille2()">Cek</button>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">POSITION</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="position" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">COST CENTER</label>
+                    <div class="col-sm-3">
+                    <input type="text" class="form-control form-control-sm" id="costid" placeholder="" disabled>
+                    </div>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="costname" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">DISTRIBUTION COST CENTER</label>
+                    <div class="col-sm-3">
+                    <input type="text" class="form-control form-control-sm" id="dcostid" placeholder="" disabled>
+                    </div>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="dcostname" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">COMPANY</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="company" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">PERSONNEL AREA</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="perarea" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">PERSONNEL SUB AREA</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="persubarea" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">EMPLOYEE TYPE</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="em_type" placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">RECEIVER</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="receiver" placeholder="">
+                    </div>
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">(Position minimum L4)</label>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">EMPLOYEE DATE START</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="em_date" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">JUSTIFICATION</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="justif" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row ml-5">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">ATTACHMENT</label>
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control form-control-sm" id="attach" placeholder="">
+                    </div>
+                </div>
+                <div style="text-align: center"><button type="button" class="btn btn-primary btn-lg" onclick="createreq()">Submit Request</button></div>
+                </div>
+            </form>
+            <span class="d-block bg-primary border border-dark"  style="height: 50px"><div class="ml-3" style="line-height: 47px">COMMENT HISTORY</div></span>
+            <div id="komenHistory"></div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script
+    src="http://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="../js/main.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
